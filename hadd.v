@@ -1,12 +1,12 @@
 module hadd (
-    input wire a,
-    input wire b,
+    input wire A,
+    input wire B,
     
-    output wire s,
-    output wire c
+    output wire S,
+    output wire C
 );
 
-assign s = a ^ b;
-assign c = a & b;
+assign S = A ^ B;
+assign C = A & B;
 
 endmodule

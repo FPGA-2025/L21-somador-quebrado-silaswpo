@@ -1,43 +1,41 @@
 module add (
-    input wire [3:0] num1,
-    input wire [3:0] num2,
-
+    input  wire [3:0] num1,
+    input  wire [3:0] num2,
+    
     output wire [3:0] out,
-    output wire cout,
+    output wire       cout //retirado ,
 );
 
-wire cout0, cout1, cout2;
+wire c1, c2, c3;
 
-fadd u0 (
+fadd f0 (
     .a(num1[0]),
     .b(num2[0]),
-    .cin(1'b1),
+    .cin(1'b0), // alterado 1'b1
     .s(out[0]),
-    .cout(cout0)
+    .cout(c1)
 );
 
-fadd u1 (
+fadd f1 (
     .a(num1[1]),
     .b(num2[1]),
-    .cin(cout0),
+    .cin(c1),
     .s(out[1]),
-    .cout(cout1)
+    .cout(c2)
 );
 
-
-fadd u2 (
-    .a(num2[2]),
-    .b(num1[2]),
-    .cin(cout1),
+fadd f2 (
+    .a(num1[2]),
+    .b(num2[2]),
+    .cin(c2),
     .s(out[2]),
-    .cout(cout2)
+    .cout(c3)
 );
 
-
-fadd u3 (
+fadd f3 (
     .a(num1[3]),
     .b(num2[3]),
-    .cin(cout1),
+    .cin(c3),
     .s(out[3]),
     .cout(cout)
 );
