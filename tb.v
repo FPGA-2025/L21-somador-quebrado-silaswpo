@@ -17,23 +17,23 @@ add u0 (
 initial begin
     $display("Iniciando testes ADD/FADD/HADD...");
 
-    // Soma básica sem carry
+    // Soma básica 
     num1 = 4'd1; num2 = 4'd2; #1;
     if ({cout, out} == 5'd3) $display("OK"); else $display("ERRO");
 
-    // Soma com carry no meio
+    // Soma 
     num1 = 4'd5; num2 = 4'd9; #1;
     if ({cout, out} == 5'd14) $display("OK"); else $display("ERRO");
 
-    // Soma com carry final
+    // Soma 
     num1 = 4'd15; num2 = 4'd1; #1;
     if ({cout, out} == 5'd16) $display("OK"); else $display("ERRO");
 
-    // Soma sem carry, todos zeros
+    // Soma zeros
     num1 = 4'd0; num2 = 4'd0; #1;
     if ({cout, out} == 5'd0) $display("OK"); else $display("ERRO");
 
-    // Soma com overflow total
+    // Soma 
     num1 = 4'd15; num2 = 4'd15; #1;
     if ({cout, out} == 5'd30) $display("OK"); else $display("ERRO");
 
@@ -41,7 +41,7 @@ initial begin
     num1 = 4'b0101; num2 = 4'b1010; #1;
     if ({cout, out} == 5'd15) $display("OK"); else $display("ERRO");
 
-    // Casos para validar hadd isoladamente
+    // Validar add
     num1 = 4'b0000; num2 = 4'b0000; #1; // 0 + 0 = 0
     if ({cout, out} == 5'd0) $display("OK"); else $display("ERRO");
 
